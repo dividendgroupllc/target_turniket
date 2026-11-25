@@ -51,6 +51,9 @@ ignore = [
     "F405", # can't detect undefined names from * import
     "F722", # syntax error in forward type annotation
     "W191", # indentation contains tabs
+    "RUF001", # ambiguous unicode in strings — o'zbekcha/kirill matn uchun kerak
+    "RUF002", # ambiguous unicode in docstrings
+    "RUF003", # ambiguous unicode in comments
 ]
 typing-modules = ["frappe.types.DF"]
 
