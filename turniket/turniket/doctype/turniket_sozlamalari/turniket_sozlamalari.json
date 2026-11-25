@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "creation": "2026-11-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sync_enabled",
+  "secret_token",
+  "section_id",
+  "student_id_start",
+  "employee_id_start",
+  "column_break_id",
+  "next_student_id",
+  "next_employee_id",
+  "section_info",
+  "last_bootstrap"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "sync_enabled",
+   "fieldtype": "Check",
+   "label": "Sinxron yoqilgan"
+  },
+  {
+   "fieldname": "secret_token",
+   "fieldtype": "Data",
+   "label": "Webhook maxfiy tokeni"
+  },
+  {
+   "fieldname": "section_id",
+   "fieldtype": "Section Break",
+   "label": "Raqamli ID diapazonlari"
+  },
+  {
+   "default": "100000",
+   "fieldname": "student_id_start",
+   "fieldtype": "Int",
+   "label": "O'quvchi ID boshi"
+  },
+  {
+   "default": "300000",
+   "fieldname": "employee_id_start",
+   "fieldtype": "Int",
+   "label": "Xodim ID boshi"
+  },
+  {
+   "fieldname": "column_break_id",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_student_id",
+   "fieldtype": "Int",
+   "label": "Keyingi o'quvchi ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_employee_id",
+   "fieldtype": "Int",
+   "label": "Keyingi xodim ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_info",
+   "fieldtype": "Section Break",
+   "label": "Ma'lumot"
+  },
+  {
+   "fieldname": "last_bootstrap",
+   "fieldtype": "Datetime",
+   "label": "Oxirgi bootstrap",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Turniket",
+ "name": "Turniket Sozlamalari",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

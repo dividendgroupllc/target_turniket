@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:terminal_name",
+ "creation": "2026-11-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "terminal_name",
+  "direction",
+  "enabled",
+  "column_break_conn",
+  "ip",
+  "port",
+  "fdid",
+  "section_auth",
+  "admin_user",
+  "admin_password",
+  "section_status",
+  "status",
+  "mac",
+  "column_break_status",
+  "last_event_time",
+  "last_event_cursor"
+ ],
+ "fields": [
+  {
+   "fieldname": "terminal_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Terminal nomi",
+   "reqd": 1,
+   "unique": 1,
+   "description": "Masalan: Kirish-1, Chiqish-2"
+  },
+  {
+   "fieldname": "direction",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Yo'nalish",
+   "options": "Kirish\nChiqish"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Faol"
+  },
+  {
+   "fieldname": "column_break_conn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ip",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "IP manzil",
+   "reqd": 1
+  },
+  {
+   "default": "443",
+   "fieldname": "port",
+   "fieldtype": "Int",
+   "label": "Port",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "fdid",
+   "fieldtype": "Data",
+   "label": "Yuz kutubxonasi FDID",
+   "description": "blackFD odatda 1"
+  },
+  {
+   "fieldname": "section_auth",
+   "fieldtype": "Section Break",
+   "label": "Autentifikatsiya"
+  },
+  {
+   "default": "admin",
+   "fieldname": "admin_user",
+   "fieldtype": "Data",
+   "label": "Admin login"
+  },
+  {
+   "fieldname": "admin_password",
+   "fieldtype": "Password",
+   "label": "Admin parol"
+  },
+  {
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "Holat"
+  },
+  {
+   "default": "Noma'lum",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Ulanish holati",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mac",
+   "fieldtype": "Data",
+   "label": "MAC manzil",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_event_time",
+   "fieldtype": "Datetime",
+   "label": "Oxirgi hodisa vaqti",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_event_cursor",
+   "fieldtype": "Data",
+   "label": "Hodisa kursori",
+   "read_only": 1,
+   "description": "AcsEvent qayta tortish uchun"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Turniket",
+ "name": "Turniket Terminal",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

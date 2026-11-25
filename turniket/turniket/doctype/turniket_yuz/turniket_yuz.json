@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:fpid",
+ "creation": "2026-11-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fpid",
+  "terminal_name",
+  "has_face",
+  "column_break_1",
+  "source_terminal",
+  "match_status",
+  "section_photo",
+  "photo",
+  "section_link",
+  "student",
+  "employee",
+  "column_break_link",
+  "matched_name",
+  "turniket_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "fpid",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "FPID (terminal ID)",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "terminal_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Terminaldagi ism"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_face",
+   "fieldtype": "Check",
+   "label": "Yuz rasmi bor"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_terminal",
+   "fieldtype": "Link",
+   "label": "Manba terminal",
+   "options": "Turniket Terminal"
+  },
+  {
+   "default": "Bog'lanmagan",
+   "fieldname": "match_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Moslik holati",
+   "options": "Bog'lanmagan\nBog'landi\nDublikat\nTopilmadi"
+  },
+  {
+   "fieldname": "section_photo",
+   "fieldtype": "Section Break",
+   "label": "Etalon rasm"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Rasm"
+  },
+  {
+   "fieldname": "section_link",
+   "fieldtype": "Section Break",
+   "label": "ERPNext bog'lanishi"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "label": "O'quvchi",
+   "options": "Student"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Xodim",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_link",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "matched_name",
+   "fieldtype": "Data",
+   "label": "Moslangan ism",
+   "read_only": 1
+  },
+  {
+   "fieldname": "turniket_id",
+   "fieldtype": "Data",
+   "label": "Yangi turniket ID",
+   "read_only": 1,
+   "description": "Next bergan toza raqamli ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Turniket",
+ "name": "Turniket Yuz",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "terminal_name"
+}
