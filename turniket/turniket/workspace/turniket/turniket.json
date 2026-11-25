@@ -1,0 +1,114 @@
+{
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Turniket — yuz tanish davomat</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Odamlar\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bog'lanmaganlar\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dublikatlar\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bog'langan\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Terminallar\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sozlamalar\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Turniket\",\"col\":4}}]",
+ "creation": "2026-11-25 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "camera",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Turniket",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Turniket",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Odamlar (Turniket Yuz)",
+   "link_count": 0,
+   "link_to": "Turniket Yuz",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Terminallar",
+   "link_count": 0,
+   "link_to": "Turniket Terminal",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sozlamalar",
+   "link_count": 0,
+   "link_to": "Turniket Sozlamalari",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-11-25 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Turniket",
+ "name": "Turniket",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 100.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Odamlar",
+   "link_to": "Turniket Yuz",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Bog'lanmaganlar",
+   "link_to": "Turniket Yuz",
+   "stats_filter": "{\"match_status\":\"Bog'lanmagan\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Dublikatlar",
+   "link_to": "Turniket Yuz",
+   "stats_filter": "{\"match_status\":\"Dublikat\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Bog'langan",
+   "link_to": "Turniket Yuz",
+   "stats_filter": "{\"match_status\":\"Bog'landi\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Terminallar",
+   "link_to": "Turniket Terminal",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Sozlamalar",
+   "link_to": "Turniket Sozlamalari",
+   "type": "DocType"
+  }
+ ],
+ "title": "Turniket"
+}
