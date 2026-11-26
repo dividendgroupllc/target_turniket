@@ -139,6 +139,16 @@ def list_face_libraries(terminal):
 	return data.get("FDLib", [])
 
 
+def _get_text(terminal, path):
+	base, auth = _conn(terminal)
+	r = requests.get(f"{base}{path}", auth=auth, verify=False, timeout=TIMEOUT)
+	r.raise_for_status()
+	return r.text
+
+
 def get_http_hosts(terminal):
-	"""Terminalning hozirgi webhook (httpHosts) sozlamasini O'QIYDI (xavfsiz)."""
-	return _get_json(terminal, "/ISAPI/Event/notification/httpHosts?format=json")
+	"""Terminalning hozirgi webhook (httpHosts) sozlamasini O'QIYDI — XML matn.
+
+	Bu endpoint ?format=json ga ham XML qaytaradi, shuning uchun xom matn olamiz.
+	"""
+	return _get_text(terminal, "/ISAPI/Event/notification/httpHosts")
