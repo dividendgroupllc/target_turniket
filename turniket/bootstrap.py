@@ -19,6 +19,52 @@ from frappe.utils.file_manager import save_file
 
 from turniket import isapi
 
+# 6 terminal topologiyasi: (nom, port, yo'nalish). Juft port = Kirish, toq = Chiqish.
+TERMINAL_TOPOLOGIYA = [
+	("Kirish-1", 4442, "Kirish"),
+	("Chiqish-1", 4441, "Chiqish"),
+	("Kirish-2", 4444, "Kirish"),
+	("Chiqish-2", 4443, "Chiqish"),
+	("Kirish-3", 4446, "Kirish"),
+	("Chiqish-3", 4445, "Chiqish"),
+]
+
+
+@frappe.whitelist()
+def setup_terminals(ip="178.218.200.21", fdid="1", password=None):
+	"""Yetishmayotgan terminal yozuvlarini yaratadi.
+
+	Parol berilmasa — mavjud (masalan Kirish-1) terminaldan oladi, qayta
+	kiritish shart emas. Allaqachon mavjud terminallarni o'tkazib yuboradi.
+	"""
+	if not password:
+		for t in frappe.get_all("Turniket Terminal", pluck="name"):
+			pw = frappe.get_doc("Turniket Terminal", t).get_password("admin_password")
+			if pw:
+				password = pw
+				break
+	if not password:
+		frappe.throw("Parol topilmadi — avval bitta terminal (Kirish-1) parol bilan yarating yoki password bering.")
+
+	created, skipped = [], []
+	for name, port, direction in TERMINAL_TOPOLOGIYA:
+		if frappe.db.exists("Turniket Terminal", name):
+			skipped.append(name)
+			continue
+		t = frappe.new_doc("Turniket Terminal")
+		t.terminal_name = name
+		t.direction = direction
+		t.ip = ip
+		t.port = port
+		t.fdid = fdid
+		t.admin_user = "admin"
+		t.admin_password = password
+		t.enabled = 1
+		t.insert(ignore_permissions=True)
+		created.append(name)
+	frappe.db.commit()
+	return {"created": created, "skipped": skipped}
+
 
 @frappe.whitelist()
 def pull_from_terminal(terminal_name, dry_run=0, limit=None):
