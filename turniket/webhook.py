@@ -35,6 +35,10 @@ TERMINAL_BY_MAC = {
 def listen(token=None, **kwargs):
 	"""Terminal hodisasini qabul qiladi. Doim 200 OK qaytaradi."""
 	try:
+		# JSON body'li so'rovda Frappe query param'ni form_dict'dan chiqarib yuboradi,
+		# shuning uchun token'ni to'g'ridan-to'g'ri query string'dan ham o'qiymiz.
+		if not token and frappe.request:
+			token = frappe.request.args.get("token")
 		_check_token(token)
 		event, picture = _extract_event()
 		if event:
