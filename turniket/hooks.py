@@ -247,3 +247,13 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+# Scheduler
+# ---------
+# O'quvchi davomati: har soat bugungi "Kirdi" hodisalardan Student Attendance.
+# Xodimlar HRMS Auto Attendance orqali ketadi (bu yerda emas).
+scheduler_events = {
+	"hourly": [
+		"turniket.attendance.sync_today",
+	],
+}
+

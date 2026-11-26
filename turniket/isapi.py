@@ -137,3 +137,8 @@ def iter_faces(terminal, fdid=None, face_lib_type="blackFD", page=30):
 def list_face_libraries(terminal):
 	data = _get_json(terminal, "/ISAPI/Intelligent/FDLib?format=json")
 	return data.get("FDLib", [])
+
+
+def get_http_hosts(terminal):
+	"""Terminalning hozirgi webhook (httpHosts) sozlamasini O'QIYDI (xavfsiz)."""
+	return _get_json(terminal, "/ISAPI/Event/notification/httpHosts?format=json")
