@@ -189,7 +189,9 @@ def _process(event, picture):
 	doc.person_name = event["person_name"]
 	doc.event_time = event["event_time"]
 	doc.direction = event["direction"]
-	doc.terminal = event["terminal"]
+	# Terminal yozuvi bo'lsa bog'laymiz; bo'lmasa bo'sh — hodisa baribir saqlanadi
+	if event["terminal"] and frappe.db.exists("Turniket Terminal", event["terminal"]):
+		doc.terminal = event["terminal"]
 	doc.person_type = person["type"]
 	doc.student = person["student"]
 	doc.employee = person["employee"]
@@ -204,9 +206,13 @@ def _process(event, picture):
 		f = save_file(f"otish_{doc.name}.jpg", picture, "Turniket Checkin", doc.name, is_private=1)
 		doc.db_set("picture", f.file_url)
 
-	# Xodim bo'lsa HRMS Employee Checkin yaratamiz (Auto Attendance o'zi ishlaydi)
+	# Xodim bo'lsa HRMS Employee Checkin yaratamiz (Auto Attendance o'zi ishlaydi).
+	# Xatosi Turniket Checkin'ni buzmasin — alohida try ichida.
 	if person["employee"]:
-		_make_employee_checkin(doc, person["employee"], event)
+		try:
+			_make_employee_checkin(doc, person["employee"], event)
+		except Exception:
+			frappe.log_error(frappe.get_traceback(), "Turniket Employee Checkin")
 
 
 def _resolve_person(fpid):
