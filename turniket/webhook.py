@@ -17,7 +17,7 @@ import json
 import xml.etree.ElementTree as ET
 
 import frappe
-from frappe.utils import now_datetime
+from frappe.utils import add_to_date, now_datetime
 from frappe.utils.file_manager import save_file
 
 # MAC -> (terminal nomi, yo'nalish). 6 terminal, amalda tasdiqlangan.
@@ -185,6 +185,16 @@ def _process(event, picture):
 
 	if frappe.db.exists("Turniket Checkin", {"external_event_id": dedup}):
 		return  # dublikat
+
+	# Debounce: terminal odamni uzluksiz tanib bir necha soniyada qayta yuboradi.
+	# Shu fpid shu yo'nalishda oxirgi 60s ichida bo'lsa — takror yozmaymiz.
+	recent = frappe.db.sql(
+		"""SELECT name FROM `tabTurniket Checkin`
+		WHERE fpid = %s AND direction = %s AND event_time >= %s LIMIT 1""",
+		(event["fpid"], event["direction"], add_to_date(event["event_time"], seconds=-60)),
+	)
+	if recent:
+		return
 
 	person = _resolve_person(event["fpid"])
 
