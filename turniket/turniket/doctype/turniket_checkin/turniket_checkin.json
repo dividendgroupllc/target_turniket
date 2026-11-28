@@ -18,6 +18,7 @@
   "employee",
   "column_break_2",
   "employee_checkin",
+  "moodle_xabar",
   "section_meta",
   "verify_mode",
   "event_code",
@@ -103,6 +104,14 @@
    "read_only": 1
   },
   {
+   "default": "0",
+   "description": "Hodisa Moodle'ga uzatildi (bildirishnoma). target_zenit moodle_turniket yozadi; 0 bo'lib qolganlarni 10 daqiqalik zaxira cron qayta yuboradi.",
+   "fieldname": "moodle_xabar",
+   "fieldtype": "Check",
+   "label": "Moodle xabari ketdi",
+   "read_only": 1
+  },
+  {
    "fieldname": "section_meta",
    "fieldtype": "Section Break",
    "label": "Ma'lumot"
@@ -147,7 +156,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-11-26 00:00:00.000000",
+ "modified": "2026-11-28 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Turniket",
  "name": "Turniket Checkin",
